@@ -1,6 +1,6 @@
 #
 
-include ../arch/mpi_compiler
+include ../arch/mac_mpi
 
 .SUFFIXES: 
 .SUFFIXES: .cpp .c .F .f .o .f90
