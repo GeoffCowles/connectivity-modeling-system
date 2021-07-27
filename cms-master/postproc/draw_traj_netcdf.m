@@ -2,6 +2,10 @@
 nest_filename='nest_1_20160101000000.nc';
 traj_filename='traj_file_1.nc';
 
+%% example case visualization
+traj_filename = '../expt/expt_example/output/traj_file_1.nc';
+nest_filename = '../expt/expt_example/nests/nest_1_20160101000000.nc';
+
 %% read in the nest data
 
 % open nestfile
