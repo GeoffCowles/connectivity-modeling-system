@@ -1,0 +1,17 @@
+Thoughts on progressing the CMS model to work for the Lateral Mixing project
+
+(1) Modify the example so that temperature and salinity are read from HYCOM and interpolated onto particle positions and included with the output
+
+(2) Modify the visualization code so that it plots salinity and temperature along the tracks
+
+(3) Add the ability to work with the density field.  The density field is not included in standard 1/12 ONR/HYCOM and thus must be reconstructed one of two ways:
+  (a) Internally - currently HYCOM has the ability to rebuild the density internally but it is a simple sigma0 estimate (no pressure correction). The TOS      polynomials for equation of state are very complex and may be tough to program because it requires a vertical accumulation. 
+  (b) Externally - Geoff wrote a possibly buggy Matlab script that works on ONR/HYCOM directly downloaded from the web.  It would need to be modified to work with the CMS processed ONR/HYCOM data (different variable names).   The Script uses the GSW toolbox.  
+
+(4) Modify the example so that density is interpolated on onto the particle positions and included with the output
+
+(5) Modify CMS so that it tracks isopycnals.  Particles must have an additional variable associated with them (release density) which can either be read from a separate file or density can replace depth in the initial particle position file.  This will require code modifications in CMS to (a) place the particle at the depth corresponding to the programmed density and initial release position and (b) stay at the depth corresponding to the programmed density as it is advected.   This code will also need some logic to contend with the scenario where that density value does not exist in the location of the float.  We will have to think about how to approach this.  The simplest case would be to stop tracking and through a flag that could be interpreted later.  
+
+(6) Modify CMS so that the vertical position is set to mimic the full programmed float behavior - isopycnal advection with periodic surfacing. 
+
+
