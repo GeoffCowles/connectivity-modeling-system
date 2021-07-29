@@ -4,7 +4,7 @@
 FC            = /opt/local/bin/mpif90
 #the Fortran flags to create object files
 #FCFLAGS =   -I/opt/netcdff480/include -O3
-FCFLAGS =   -I/opt/netcdff480/include
+FCFLAGS =   -I/opt/netcdf480/include
 
 #the C-compiler to create object files
 CC            = /opt/local/bin/gcc
