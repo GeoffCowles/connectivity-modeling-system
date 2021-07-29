@@ -283,8 +283,8 @@ SUBROUTINE loop(my_id, npes)
 !for each timestep
  day_loop: DO time_t=time_t_first,total_seconds,timeStep
 !  write restart data every restartwritefreq time.
-   IF(restartwritefreq > 0)THEN !!GWC
-     IF ((writerestart) .and. (mod(time_t,restartwritefreq).eq.0.)) THEN
+   IF(writerestart)THEN 
+     IF (mod(time_t,restartwritefreq).eq.0.) THEN
        write(filename,'(A,I0)') 'file_',my_id+1
        CALL writerestartfile(trim(filename), startR, endR, time_t)
      ENDIF
