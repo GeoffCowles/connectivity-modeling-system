@@ -3,12 +3,16 @@
 #the Fortran compiler to create object files
 FC            = /opt/local/bin/mpif90
 #the Fortran flags to create object files
-#FCFLAGS =   -I/opt/netcdff480/include -O3
-FCFLAGS =   -I/opt/netcdff453/include
+#FCFLAGS =   -I/opt/netcdff453/include -Wall -fcheck=all -g -fbacktrace
+#FCFLAGS =   -I/opt/netcdff453/include -O3 
+FCFLAGS =   -I/opt/netcdff453/include 
 
 #the C-compiler to create object files
 CC            = /opt/local/bin/gcc
+
 #the C flags to create object files
+#CCFLAGS       = -O -Wall -fcheck=all -g -fbacktrace
+#CCFLAGS       = -O3 
 CCFLAGS       = -O 
 
 #the Fortran compiler to create executable
