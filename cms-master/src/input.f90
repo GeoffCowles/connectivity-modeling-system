@@ -125,9 +125,13 @@ SUBROUTINE load_runconf
 
  IF (writerestart) THEN
  print *, "Writing restart file. Will be updated every:",restartwriteFreq,"seconds"
-  IF (restartwritefreq .le. 0) THEN
+  IF (restartwritefreq .lt. 0) THEN
    restartwriteFreq = outputFreq*10
    print *, "Setting parameter restartwriteFreq to that of 10 * outputFreq at ", restartwriteFreq
+  ENDIF
+  IF (restartwritefreq .eq. 0) THEN
+    print *, "Error:  restartwritefreq must be nonzero when writerestart is active"
+    stop
   ENDIF
  ENDIF
 
